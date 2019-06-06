@@ -78,13 +78,16 @@
                 <ul class="list-grupo">
                   <li class="list-grup-item"><h4 class="text-center">Menu</h4></li>
                   @if (Auth::user()->level>=0)
-                    <li class="list-grup-item text-center">Usuário: Leitor</li>
+                    <!--<li class="list-grup-item text-center">Usuário: Leitor</li>-->
                     @endif
-                    @if (Auth::user()->level>=0)
-                      <li class="list-grup-item text-center">Usuário: Revisor</li>
+                    @if (Auth::user()->level>=1)
+                      <!--li class="list-grup-item text-center">Usuário: Revisor</li>-->
                       @endif
-                      @if (Auth::user()->level>=0)
-                        <li class="list-grup-item text-center">Usuário: Administrador</li>
+                      @if (Auth::user()->level>=2)
+                      <!--Usuarios-->
+                      <li class="list-group-item text-center"><h4>Usuários</h4></li>
+                      <li class="list-group-item"> <a href="{!! url('/painel/criar-usuario') !!}">-> Criar Usuário</a> </li>
+                      <li class="list-group-item"> <a href="{!! url('/painel/listar-usuarios') !!}">-> Listar Usuários</a> </li>
                         @endif
                 </ul>
               </div>
