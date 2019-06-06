@@ -8,7 +8,7 @@ use Auth;
 class LevelMiddleware
 {
     /**
-     * Handle an incoming request.
+     * Sera responsabel por validar o nível do usuário sempre que houver uma requisição.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
