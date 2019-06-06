@@ -20,6 +20,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+  <style media="screen">
+.avatar{
+  border-radius: 50%;
+  position: relative;
+  top: -7px;
+  float: left;
+  left: -8px;
+}
+</style>
+
+<img src="{{url(Auth::user()->avatar)}}" width="36" class="avatar"> {{ Auth::user()->name }}
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
