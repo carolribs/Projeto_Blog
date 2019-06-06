@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Usuarios;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+/* modificar a função index para ter um parametro dfe nome e também listar os usuários que foram deletados   */
 class UserController extends Controller
 {
   public function index()
@@ -32,6 +32,11 @@ public function store(Request $request)
   $user->save();
 
   return view('usuarios.user.create')->with('msg', 'Usuário Adicionado com Sucesso.');
+}
+public function destroy($id)
+{
+  User::find($id)->delete();
+  return back()->with('msg','Usuário Deletado Com Sucesso.');
 }
 
 }
