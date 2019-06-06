@@ -60,6 +60,10 @@ return [
             'visibility' => 'public',
 
         ],
+        'upl_arquivos' => [
+            'driver' => 'local',
+        'root' => public_path().'/assets/arquivos'
+          ],
 
         's3' => [
             'driver' => 's3',

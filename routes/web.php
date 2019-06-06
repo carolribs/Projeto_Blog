@@ -41,6 +41,9 @@ Route::middleware(['auth'])->prefix('painel')->group(function () {
 
      Route::get('deletar-usuario/{id}','Usuarios\UserController@destroy');
 
+     Route::get('/upload-arquivos', 'Usuarios\ArquivosController@index');
+     Route::post('/upload-arquivos', 'Usuarios\ArquivosController@store');
+
      });
 
 });
