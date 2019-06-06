@@ -46,11 +46,36 @@ public function config_update(Request $request)
 {
   switch ($request->input('tipo')) {
     case 'avatar':
-      # code...
+
+          $request->validate([
+            'avatar' => 'required',
+          ]);
+
+          Storage::disk('upl_avatar')->put('avatar_'.Auth::user()->id.'.png', file_get_contents($request->file('avatar')));
+          $user = Auth::user();
+          $user->avatar = url('assets/avatar/'.'avatar_'.Auth::user()->id.'.png');
+          $user->save();
+
+          return back()->with('msg', 'Avatar alterado com Sucesso.');
+      
       break;
 
     case 'n.e.d':
-      # code...
+
+    $user = Auth::user();
+    if(!is_null($request->input('nome'))){
+      $user->name = $request->input('nome');
+    }
+    if(!is_null($request->input('email'))){
+      $user->email = $request->input('email');
+    }
+    if(!is_null($request->input('descricao'))){
+      $user->descricao = $request->input('descricao');
+    }
+    $user->save();
+
+    return back()->with('msg', 'alteração realizada com Sucesso.');
+
       break;
 
     case 'senha':
@@ -72,6 +97,5 @@ public function config_update(Request $request)
       break;
   }
 }
-
 
 }
